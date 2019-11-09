@@ -171,7 +171,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
 
-    if s == screen[1] then awful.tag({ " terminal  ", " www  ", " musik   ", " finder  ", " kalender  ", " mail  ", " gimp  ", }, s, awful.layout.layouts[2]) else awful.tag({ " terminal  ", " steam  ", " torrent  ", " plex ", " vm ", }, s, awful.layout.layouts[2]) end
+    if s == screen[1] then awful.tag({ " terminal  ", " www  ", " musik   ", " finder  ", " dropbox  ", " kalender  ", " mail  ",  }, s, awful.layout.layouts[2]) else awful.tag({ " terminal  ", " torrent  ", " steam  ", " minecraft  ", " wine  ", " gimp  ",  }, s, awful.layout.layouts[2]) end
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -187,6 +187,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
+        spacing = 20,
         buttons = taglist_buttons
     }
 
@@ -466,7 +467,7 @@ awful.rules.rules = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "xterm",  -- Includes session name in class.
-          "Gedit",
+          "gedit",
         },
         class = {
           "Arandr",
@@ -499,7 +500,7 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { instance = "Navigator" },
-       properties = { screen = 1,tag = " www  " } },
+       properties = { screen = 1,tag = " www  " } },
     { rule = { instance = "Spotify" },
        properties = { screen = 1,tag = " musik   " } },
     { rule = { instance = "pcmanfm" },
@@ -509,13 +510,23 @@ awful.rules.rules = {
     { rule = { instance = "evolution" },
        properties = { screen = 1,tag = " mail  " } },
     { rule = { instance = "gimp" },
-       properties = { screen = 1,tag = " gimp  " } },
+       properties = { screen = 2,tag = " gimp  " } },
     { rule = { instance = "Steam" },
        properties = { screen = 2,tag = " steam  " } },
     { rule = { instance = "transmission-gtk" },
        properties = { screen = 2,tag = " torrent  " } },
-    { rule = { instance = "Plex" },
-       properties = { screen = 2,tag = " plex " } },
+    { rule = { instance = "com-atlauncher-App" },
+       properties = { screen = 2,tag = " minecraft  " } },
+    { rule = { instance = "Minecraft Launcher" },
+       properties = { screen = 2,tag = " minecraft  " } },
+    { rule = { instance = "Cities.x64" },
+       properties = { screen = 2,tag = " steam  " } },
+    { rule = { instance = "dota2" },
+       properties = { screen = 2,tag = " steam  " } },
+    { rule = { instance = "openmw" },
+       properties = { screen = 2,tag = " wine  " } },
+    { rule = { instance = "Minecraft 1.12.2" },
+       properties = { screen = 2,tag = " steam  " } },
 }
 -- }}}
 
